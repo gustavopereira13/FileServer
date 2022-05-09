@@ -1,0 +1,41 @@
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+{% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>File Server</title>
+</head>
+<body>
+    <h2>Login Page</h2><br>
+    <div class="login">
+    <form id="login" method="post">
+        <label><b>User Name
+        </b>
+        </label>
+        <input type="text" name="Uname" id="Uname" placeholder="Username">
+        <br><br>
+        <label><b>Password
+        </b>
+        </label>
+        <input type="Password" name="Pass" id="Pass" placeholder="Password">
+        <br><br>
+        <input type="Submit" name="log" id="log" value="Log In Here">
+        <br><br>
+    </form>
+</div>
+</body>
+</html>
+{% endblock %}
