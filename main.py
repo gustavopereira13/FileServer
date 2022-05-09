@@ -46,7 +46,7 @@ def login():
 def logout():
     global logged_user
     if logged_user != "none":
-        flash('You were successfully logged out')
+        flash(f'You were successfully logged out {logged_user}')
     logged_user = "none"
     return redirect(url_for('index'))
 
